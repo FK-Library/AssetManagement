@@ -17,6 +17,7 @@
 /Users/fatemehkhodadadi/repos/1/AssetManagement/AssetManagement/obj/Debug/net8.0/AssetManagement.csproj.CoreCompileInputs.cache
 /Users/fatemehkhodadadi/repos/1/AssetManagement/AssetManagement/obj/Debug/net8.0/AssetManagement.MvcApplicationPartsAssemblyInfo.cs
 /Users/fatemehkhodadadi/repos/1/AssetManagement/AssetManagement/obj/Debug/net8.0/AssetManagement.MvcApplicationPartsAssemblyInfo.cache
+/Users/fatemehkhodadadi/repos/1/AssetManagement/AssetManagement/obj/Debug/net8.0/AssetManagement.sourcelink.json
 /Users/fatemehkhodadadi/repos/1/AssetManagement/AssetManagement/obj/Debug/net8.0/staticwebassets.build.json
 /Users/fatemehkhodadadi/repos/1/AssetManagement/AssetManagement/obj/Debug/net8.0/staticwebassets.development.json
 /Users/fatemehkhodadadi/repos/1/AssetManagement/AssetManagement/obj/Debug/net8.0/staticwebassets/msbuild.AssetManagement.Microsoft.AspNetCore.StaticWebAssets.props

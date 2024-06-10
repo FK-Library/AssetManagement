@@ -1,3 +1,5 @@
+using Xunit;
+
 namespace AssetManagement.Test;
 
 public class UnitTest1
