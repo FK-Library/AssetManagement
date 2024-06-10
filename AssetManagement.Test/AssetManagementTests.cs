@@ -20,4 +20,20 @@ public class AssetManagementTests
         Assert.IsType<List<Asset>>(assets);
         Assert.Equal(3,assets.Count);
     }
+    [Fact]
+    public async Task GetAllPrices_ShouldReturnPrices()
+    {
+        // Arrange
+        var repository = new AssetRepository();
+        
+        // Act
+        var prices = await repository.GetAllPrices();
+        
+        
+        // Assert
+        Assert.NotNull(prices);
+        
+        Assert.IsType<List<Price>>(prices);
+        Assert.Equal(3,prices.Count);
+    }
 }
