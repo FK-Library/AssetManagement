@@ -1,0 +1,6 @@
+/Users/fatemehkhodadadi/repos/1/AssetManagement/bin/Debug/net8.0/CoverletSourceRootsMapping_AssetManagement.Test
+/Users/fatemehkhodadadi/repos/1/AssetManagement/obj/Debug/net8.0/AssetManagement.Test.csproj.AssemblyReference.cache
+/Users/fatemehkhodadadi/repos/1/AssetManagement/obj/Debug/net8.0/AssetManagement.Test.GeneratedMSBuildEditorConfig.editorconfig
+/Users/fatemehkhodadadi/repos/1/AssetManagement/obj/Debug/net8.0/AssetManagement.Test.AssemblyInfoInputs.cache
+/Users/fatemehkhodadadi/repos/1/AssetManagement/obj/Debug/net8.0/AssetManagement.Test.AssemblyInfo.cs
+/Users/fatemehkhodadadi/repos/1/AssetManagement/obj/Debug/net8.0/AssetManagement.Test.csproj.CoreCompileInputs.cache
