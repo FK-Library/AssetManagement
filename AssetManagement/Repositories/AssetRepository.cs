@@ -11,22 +11,6 @@ public class AssetRepository:IAssetRepository
     private Guid _assetId = Guid.NewGuid();
     private Guid _priceId = Guid.NewGuid();
     
-    // private static readonly List<Asset> _assets = new()
-    // {
-    //     new Asset{Id = Guid.NewGuid(), Name = "Microsoft Corporation", Symbol = "MSFT", ISIN = "US5949181045"},
-    //     new Asset{Id = Guid.NewGuid(), Name = "Apple Inc.", Symbol = "AAPL", ISIN = "US0378331005"},
-    //     new Asset{Id = Guid.NewGuid(), Name = "Google LLC", Symbol = "GOOGL", ISIN = "US38259P5089"}
-    // };
-    
-    //private static readonly List<Price> _prices ;
-    //     = new List<Price>
-    // {
-    //     new Price(Guid.NewGuid(), _assets[0].Id, "source1", 100m, DateTime.Now),
-    //     new Price(Guid.NewGuid(), _assets[1].Id, "source2", 200m, DateTime.Now),
-    //     new Price(Guid.NewGuid(), _assets[2].Id, "source3", 300m, DateTime.Now)
-    // };
-    
-    
     public async Task<List<Asset?>> GetAllAssets() => await Task.FromResult(_assets.ToList());
 
     public async Task<Asset?> GetAssetById(Guid id)
@@ -89,9 +73,6 @@ public class AssetRepository:IAssetRepository
     {
         if (price is null)
             throw new ArgumentNullException(nameof(price));
-        
-        //price = price with { Id = Guid.NewGuid() };
-        
         
         _prices.Add(price);
         
