@@ -11,18 +11,34 @@ public class AssetManagementTests
     {
         // Arrange
         var repository = new AssetRepository();
-        
+
         // Act
-        var assets = await repository.GetAllAssets();
+        var result = await repository.GetAllAssets();
         
         // Assert
-        Assert.NotNull(assets);
-        Assert.IsType<List<Asset>>(assets);
-        Assert.Equal(3,assets.Count);
+        Assert.NotNull(result);
+        Assert.IsType<List<Asset>>(result);
+        
+        Assert.Equal(3,result.Count);
+        
     }
-    
+
     [Fact]
-    public async Task AddAsset_ShouldAddsAnAssetAndReturnAsset(){}
+    public async Task AddAsset_ShouldAddsAnAssetAndReturnAsset()
+    {
+        // Arrange
+        var _repository = new AssetRepository();
+        
+        var asset = new Asset { Id = Guid.NewGuid(), Name = "aName", Symbol = "aSymbol", ISIN = "US12345" };
+        
+        // Arrange
+        await _repository.AddAsset(asset);
+        var results = await _repository.GetAssetById(asset.Id); //TODO: could test this separately
+        
+        // Assert
+        Assert.NotNull(results);
+        Assert.Equal(asset, results);
+    }
     //TODO: add fail scenario
     
     [Fact]
@@ -32,26 +48,6 @@ public class AssetManagementTests
     [Fact]
     public async Task DeleteAsset_GivenValidAssetId_ShouldDeleteAsset(){}
     //TODO: add invalid assetId scenario and failed delete - how to handle exceptons?
-    
-    [Fact]
-    public async Task GetAssetById_GivenAnAssetId_ReturnsAnAsset(){}
-    
-    [Fact]
-    public async Task GetAllPrices_ShouldReturnPrices()
-    {
-        // Arrange
-        var repository = new AssetRepository();
-        
-        // Act
-        var prices = await repository.GetAllPrices();
-        
-        
-        // Assert
-        Assert.NotNull(prices);
-        
-        Assert.IsType<List<Price>>(prices);
-        Assert.Equal(3,prices.Count);
-    }
     
     [Fact]
     public async Task AddPrice_GivenValidPrice_ShouldAddPrice(){}

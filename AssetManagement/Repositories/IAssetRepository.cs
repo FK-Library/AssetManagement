@@ -5,10 +5,11 @@ namespace AssetManagement.Repositories;
 public interface IAssetRepository
 {
    Task<List<Asset>> GetAllAssets();
-   Task<Asset> GetAssetById(int id);
+   Task<Asset> GetAssetById(Guid id);
    Task AddAsset(Asset asset);
    Task UpdateAsset(Asset asset);
-   Task DeleteAsset(int id); //TODO: By Id?
+   Task DeleteAsset(Guid id); //TODO: By Id?
+   
    
    Task<List<Price>> GetAllPrices(); //TODO: This is not part of requirements and only for my reference and testing prices - should be removed
 
