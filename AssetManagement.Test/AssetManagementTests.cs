@@ -11,7 +11,10 @@ public class AssetManagementTests
     {
         // Arrange
         var repository = new AssetRepository();
-
+        await repository.AddAsset( new Asset { Id = Guid.NewGuid(), Name = "aName", Symbol = "aSymbol", ISIN = "US12345"});
+        await repository.AddAsset( new Asset { Id = Guid.NewGuid(), Name = "aName", Symbol = "aSymbol", ISIN = "US12345"});
+        await repository.AddAsset( new Asset { Id = Guid.NewGuid(), Name = "aName", Symbol = "aSymbol", ISIN = "US12345"});
+        
         // Act
         var result = await repository.GetAllAssets();
         
@@ -48,13 +51,46 @@ public class AssetManagementTests
     [Fact]
     public async Task DeleteAsset_GivenValidAssetId_ShouldDeleteAsset(){}
     //TODO: add invalid assetId scenario and failed delete - how to handle exceptons?
-    
+
     [Fact]
-    public async Task AddPrice_GivenValidPrice_ShouldAddPrice(){}
+    public async Task AddPrice_GivenValidPrice_ShouldAddPrice()
+    {
+        // Arrange
+        var priceId = Guid.NewGuid();
+        var assetId = Guid.NewGuid();
+        var repository = new AssetRepository();
+        var price = new Price(priceId, assetId, "Reuters", 150.00m, DateTime.Today);
+        
+        // Act
+        await repository.AddPrice(price);
+        var result = await repository.GetPricesByDate(assetId, DateTime.Today);
+        
+        // Assert
+        Assert.Contains(price, result);
+    }
     //TODO: failure scenario
-    
+
     [Fact]
-    public async Task UpdatePrice_GivenValidPrice_ShouldUpdatePrice(){}
+    public async Task UpdatePrice_GivenValidPrice_ShouldUpdatePrice()
+    {
+        // Arrange
+        var priceId = Guid.NewGuid();
+        var assetId = Guid.NewGuid();
+        var repository = new AssetRepository();
+        var price = new Price(priceId, assetId, "Reuters", 150.00m, DateTime.Today);
+        await repository.AddPrice(price);
+        
+        // Act
+        var updatedPrice = price with { Value = 155.00m };
+        await repository.UpdatePrice(updatedPrice);
+
+        var result = await repository.GetPricesByDate(assetId, DateTime.Today);
+        
+        // Assert
+        Assert.Contains(updatedPrice, result);
+        Assert.DoesNotContain(price,result);
+        
+    }
     //TODO: failure scenario
     
     [Fact]
