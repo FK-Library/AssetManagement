@@ -4,3 +4,4 @@
 /Users/fatemehkhodadadi/repos/1/AssetManagement/obj/Debug/net8.0/AssetManagement.Test.AssemblyInfoInputs.cache
 /Users/fatemehkhodadadi/repos/1/AssetManagement/obj/Debug/net8.0/AssetManagement.Test.AssemblyInfo.cs
 /Users/fatemehkhodadadi/repos/1/AssetManagement/obj/Debug/net8.0/AssetManagement.Test.csproj.CoreCompileInputs.cache
+/Users/fatemehkhodadadi/repos/1/AssetManagement/obj/Debug/net8.0/AssetManagement.Test.sourcelink.json
