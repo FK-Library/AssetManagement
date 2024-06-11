@@ -20,4 +20,12 @@ public class AssetController: ControllerBase
         return Ok(assets);
     }
 
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Asset>> GetAsset(Guid id)
+    {
+        var asset = await _repository.GetAssetById(id);
+        if (asset is null)
+            return NotFound();
+        return Ok(asset);
+    }
 }
