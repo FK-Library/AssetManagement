@@ -1,6 +1,5 @@
 using AssetManagement.Models;
 using AssetManagement.Repositories;
-using Xunit;
 
 namespace AssetManagement.Test;
 
