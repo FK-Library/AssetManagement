@@ -4,6 +4,8 @@ namespace AssetManagement.Repositories;
 
 public interface IPriceRepository
 {
+   Task<List<Price>> GetAllPrices();
+   
    /// <summary>
    /// Retrieve the price of one or more assets, for a given date, optionally from a specific source.
    /// Your results should include the timestamp for when each price was last updated (or created).

@@ -58,7 +58,14 @@ public class AssetManagementTests
         var priceId = Guid.NewGuid();
         var assetId = Guid.NewGuid();
         var repository = new PriceRepository();
-        var price = new Price(priceId, assetId, "Reuters", 150.00m, DateTime.Today);
+        var price = new Price
+        {
+            Id = Guid.NewGuid(),
+            AssetId = assetId,
+            Source = "X",
+            Value = 100.0m,
+            Created = DateTime.Today
+        };
         
         // Act
         await repository.AddPrice(price);
@@ -76,7 +83,15 @@ public class AssetManagementTests
         var priceId = Guid.NewGuid();
         var assetId = Guid.NewGuid();
         var repository = new PriceRepository();
-        var price = new Price(priceId, assetId, "Reuters", 150.00m, DateTime.Today);
+        var price = new Price
+        {
+            Id = Guid.NewGuid(),
+            AssetId = assetId,
+            Source = "X",
+            Value = 100.0m,
+            Created = DateTime.Today
+        };
+        
         await repository.AddPrice(price);
         
         // Act

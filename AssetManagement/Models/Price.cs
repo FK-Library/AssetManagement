@@ -1,4 +1,11 @@
 namespace AssetManagement.Models;
 
-public record Price(Guid Id, Guid AssetId, string Source, decimal Value,DateTime Created);
+public record Price
+{
+    public required Guid Id;
+    public required Guid AssetId;
+    public string Source;
+    public decimal Value;
+    public DateTime Created;
+}
 
