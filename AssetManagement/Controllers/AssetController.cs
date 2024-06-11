@@ -51,6 +51,20 @@ public class AssetController: ControllerBase
             return NotFound();
         
         await _repository.UpdateAsset(asset);
+        
+        return NoContent();
+    }
+    
+    [HttpDelete]
+    public async Task<IActionResult> DeleteAsset(Guid id)
+    {
+        var existingAsset = await _repository.GetAssetById(id);
+
+        if (existingAsset is null)
+            return NotFound();
+        
+        await _repository.DeleteAsset(id);
+        
         return NoContent();
     }
 }
