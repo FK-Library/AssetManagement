@@ -77,6 +77,58 @@ public class AssetsControllerTests
         Assert.Equal("Apple Inc.", returnValue.Name);
     } 
     
+    [Fact]
+    public async Task UpdateAsset_ShouldReturnNoContent()
+    {
+        // Arrange
+        var mockRepo = new Mock<IAssetRepository>();
+        var controller = new AssetController(mockRepo.Object);
+        var updatedAsset = new Asset { Id = Guid.NewGuid(),Name = "Apple Inc.",Symbol = "AAPL",ISIN = "US0378331005" };
+        
+        mockRepo.Setup(repo => repo.GetAssetById(updatedAsset.Id)).ReturnsAsync(updatedAsset);
+        mockRepo.Setup(repo => repo.UpdateAsset(updatedAsset)).Returns(Task.CompletedTask);
+        
+        // Act
+        var result = await controller.UpdateAsset(updatedAsset.Id,updatedAsset);
+       
+        // Asseert
+        Assert.IsType<NoContentResult>(result);
+        var noContentResult = result as NoContentResult;
+        Assert.Equal(204, noContentResult.StatusCode);
+    }  
+    
+    [Fact]
+    public async Task UpdateAsset_IdMismatch_ShouldReturnBadRequest()
+    {
+        // Arrange
+        var mockRepo = new Mock<IAssetRepository>();
+        var controller = new AssetController(mockRepo.Object);
+        var updatedAsset = new Asset { Id = Guid.NewGuid(),Name = "Apple Inc.",Symbol = "AAPL",ISIN = "US0378331005" };
+        var differentId = Guid.NewGuid();
+        
+        // Act
+        var result = await controller.UpdateAsset(differentId,updatedAsset);
+       
+        // Asseert
+        Assert.IsType<BadRequestResult>(result);
+    }  
+    
+    [Fact]
+    public async Task UpdateAsset_AssetNotFound_ShouldReturnNotFound()
+    {
+        // Arrange
+        var mockRepo = new Mock<IAssetRepository>();
+        var controller = new AssetController(mockRepo.Object);
+        var updatedAsset = new Asset { Id = Guid.NewGuid(), Name = "Apple Inc.", Symbol = "AAPL", ISIN = "US0378331005" };
+
+        mockRepo.Setup(repo => repo.GetAssetById(updatedAsset.Id)).ReturnsAsync((Asset)null);
+
+        // Act
+        var result = await controller.UpdateAsset(updatedAsset.Id, updatedAsset);
+
+        // Assert
+        Assert.IsType<NotFoundResult>(result);
+    }
     
     
     private List<Asset> GetTestAssets()

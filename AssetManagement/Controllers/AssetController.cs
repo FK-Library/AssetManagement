@@ -1,3 +1,4 @@
+using System.Reflection;
 using AssetManagement.Models;
 using AssetManagement.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -37,5 +38,19 @@ public class AssetController: ControllerBase
         await _repository.AddAsset(asset);
         return CreatedAtAction(nameof(GetAsset), new { id = asset.Id }, asset);
     }
-    
+
+[HttpPut("{id}")]
+    public async Task<object?> UpdateAsset(Guid id, Asset asset)
+    {
+        if (id != asset.Id)
+            return BadRequest();
+
+        var existingAsset = await _repository.GetAssetById(id);
+        
+        if (existingAsset is null)
+            return NotFound();
+        
+        await _repository.UpdateAsset(asset);
+        return NoContent();
+    }
 }

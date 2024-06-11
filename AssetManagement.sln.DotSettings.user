@@ -6,5 +6,7 @@
     &lt;TestId&gt;xUnit::53477C2A-7702-4E77-8FDD-CA686E872803::net8.0::AssetManagement.Test.AssetsControllerTests.GetAssets_ShouldReturnAllAssets&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::53477C2A-7702-4E77-8FDD-CA686E872803::net8.0::AssetManagement.Test.AssetsControllerTests.GetAssetById_InValidId_ReturnsNotFound&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::53477C2A-7702-4E77-8FDD-CA686E872803::net8.0::AssetManagement.Test.AssetsControllerTests.GetAssetById_ValidAssetId_ReturnAsset&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::53477C2A-7702-4E77-8FDD-CA686E872803::net8.0::AssetManagement.Test.AssetsControllerTests.UpdateAsset_ShouldReturnBadRequest&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::53477C2A-7702-4E77-8FDD-CA686E872803::net8.0::AssetManagement.Test.AssetsControllerTests.UpdateAsset_ShouldReturnNoContent&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
