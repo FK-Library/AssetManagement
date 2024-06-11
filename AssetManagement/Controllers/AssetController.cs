@@ -16,7 +16,7 @@ public class AssetController: ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Asset>>> GetAssets()
     {
-        var assets = await _repository.GetAllassets();
+        var assets = await _repository.GetAllAssets();
         return Ok(assets);
     }
 

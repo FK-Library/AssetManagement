@@ -110,3 +110,5 @@
 /Users/fatemehkhodadadi/repos/1/AssetManagement/AssetManagement.Test/obj/Debug/net8.0/AssetManagement.Test.pdb
 /Users/fatemehkhodadadi/repos/1/AssetManagement/AssetManagement.Test/obj/Debug/net8.0/AssetManagement.Test.genruntimeconfig.cache
 /Users/fatemehkhodadadi/repos/1/AssetManagement/AssetManagement.Test/obj/Debug/net8.0/ref/AssetManagement.Test.dll
+/Users/fatemehkhodadadi/repos/1/AssetManagement/AssetManagement.Test/bin/Debug/net8.0/Castle.Core.dll
+/Users/fatemehkhodadadi/repos/1/AssetManagement/AssetManagement.Test/bin/Debug/net8.0/Moq.dll
