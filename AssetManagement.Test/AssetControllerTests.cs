@@ -6,7 +6,7 @@ using Moq;
 
 namespace AssetManagement.Test;
 
-public class AssetsControllerTests
+public class AssetControllerTests
 {
 
     [Fact]
