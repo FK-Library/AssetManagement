@@ -37,7 +37,7 @@ public class AssetsControllerTests
         var controller = new AssetController(mockRepo.Object);
 
         // Act
-        var result = await controller.GetAsset(GetTestAsset().Id);
+        var result = await controller.GetAsset(Guid.NewGuid());
        
         // Asseert
         var okResult = Assert.IsType<OkObjectResult>(result.Result);
@@ -59,6 +59,24 @@ public class AssetsControllerTests
         // Asseert
         Assert.IsType<NotFoundResult>(result.Result);
     }
+    
+    [Fact]
+    public async Task AddAsset_ShouldReturnCreatedAtAction()
+    {
+        // Arrange
+        var mockRepo = new Mock<IAssetRepository>();
+        var controller = new AssetController(mockRepo.Object);
+        var newAsset = new Asset { Id = Guid.NewGuid(),Name = "Apple Inc.",Symbol = "AAPL",ISIN = "US0378331005" };
+        
+        // Act
+        var result = await controller.AddAsset(newAsset);
+       
+        // Asseert
+        var createdAtActionResult = Assert.IsType<CreatedAtActionResult>(result);
+        var returnValue = Assert.IsType<Asset>(createdAtActionResult.Value);
+        Assert.Equal("Apple Inc.", returnValue.Name);
+    } 
+    
     
     
     private List<Asset> GetTestAssets()
