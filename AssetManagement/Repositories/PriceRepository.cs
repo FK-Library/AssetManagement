@@ -20,6 +20,17 @@ public class PriceRepository: IPriceRepository
 
         return prices.ToList();
     }
+    
+    public async Task<List<Price>> GetPricesByAsset(Guid assetId, string? source = null)
+    {
+        await Task.Delay(100);
+        var prices = _prices.Where(p => p.AssetId == assetId);
+
+        if (!string.IsNullOrEmpty(source))
+            prices = prices.Where(p => p.Source == source);
+
+        return prices.ToList();
+    }
 
     public async Task AddPrice(Price price)
     {

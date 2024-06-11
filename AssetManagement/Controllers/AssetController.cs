@@ -7,7 +7,7 @@ namespace AssetManagement.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AssetController: ControllerBase
+public class AssetController : ControllerBase
 {
     private readonly IAssetRepository _repository;
 
@@ -39,22 +39,22 @@ public class AssetController: ControllerBase
         return CreatedAtAction(nameof(GetAsset), new { id = asset.Id }, asset);
     }
 
-[HttpPut("{id}")]
+    [HttpPut("{id}")]
     public async Task<object?> UpdateAsset(Guid id, Asset asset)
     {
         if (id != asset.Id)
             return BadRequest();
 
         var existingAsset = await _repository.GetAssetById(id);
-        
+
         if (existingAsset is null)
             return NotFound();
-        
+
         await _repository.UpdateAsset(asset);
-        
+
         return NoContent();
     }
-    
+
     [HttpDelete]
     public async Task<IActionResult> DeleteAsset(Guid id)
     {
@@ -62,9 +62,9 @@ public class AssetController: ControllerBase
 
         if (existingAsset is null)
             return NotFound();
-        
+
         await _repository.DeleteAsset(id);
-        
+
         return NoContent();
     }
 }

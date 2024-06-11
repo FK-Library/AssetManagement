@@ -13,6 +13,7 @@ public interface IPriceRepository
    /// </summary>
    /// <returns> List<Prices>> </returns>
    Task<List<Price>> GetPricesByDate(Guid assetId, DateTime created, string? source = null);
+   Task<List<Price>> GetPricesByAsset(Guid assetId, string? source = null);
    Task AddPrice(Price price);
    Task UpdatePrice(Price price);
 }
